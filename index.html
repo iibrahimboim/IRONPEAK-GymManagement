@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IRONPEAK — Gym Management</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <header>
+    <div class="logo-area">
+      <div class="logo">⚡</div>
+      <div>
+        <h1>IRON<span>PEAK</span></h1>
+        <p class="subjudul">Gym Management System</p>
+      </div>
+    </div>
+    <nav class="navigasi">
+      <button class="nav-btn-active" data-page="dashboard">📊 Dashboard</button>
+      <button class="nav-btn" data-page="member">👥 Member</button>
+    </nav>
+    <div class="jam-area">
+      <span id="live-time"></span>
+      <span id="live-date"></span>
+    </div>
+  </header>
+
+  <!-- DASHBOARD -->
+  <div class="page-active" id="page-dashboard">
+    <div class="isi-dashboard">
+
+      <div class="kotak-statistik">
+        <div class="statistik">
+          <div class="ikon">👥</div>
+          <div>
+            <div class="angka" id="d-total">0</div>
+            <div class="keterangan">Total Member</div>
+          </div>
+        </div>
+        <div class="statistik">
+          <div class="ikon">✅</div>
+          <div>
+            <div class="angka" id="d-active">0</div>
+            <div class="keterangan">Member Aktif</div>
+          </div>
+        </div>
+        <div class="statistik">
+          <div class="ikon">❌</div>
+          <div>
+            <div class="angka" id="d-expired">0</div>
+            <div class="keterangan">Member Expired</div>
+          </div>
+        </div>
+        <div class="statistik">
+          <div class="ikon">⚠️</div>
+          <div>
+            <div class="angka" id="d-expiring">0</div>
+            <div class="keterangan">Hampir Expired</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bagian-infrastruktur">
+        <h3 class="judul-infrastruktur">💪 Tim Infrastruktur Kami</h3>
+        <div class="daftar-infrastruktur">
+          <div class="kartu-infrastruktur">
+            <img src="boim.jpeg" alt="Maulana" class="foto"/>
+            <div class="nama-infrastruktur">Maulana Ibrahim Hadad</div>
+            <div class="spesialis">Spesialis Back &amp; Shoulder</div>
+          </div>
+          <div class="kartu-infrastruktur">
+            <img src="ridho.jpeg" alt="Ridho" class="foto"/>
+            <div class="nama-infrastruktur">Muhammad Ridho</div>
+            <div class="spesialis">Spesialis Arm &amp; Chest</div>
+          </div>
+          <div class="kartu-infrastruktur">
+            <img src="irfan.jpeg" alt="Irfhan" class="foto"/>
+            <div class="nama-infrastruktur">Irfhan Ardhiansyah</div>
+            <div class="spesialis">Spesialis Abs &amp; Leg</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MEMBER -->
+  <div class="page" id="page-member">
+    <div class="layout-dua-kolom">
+
+      <div class="form-panel">
+        <div class="kepala-panel">
+          <h3 id="member-form-title">➕ Daftar Member</h3>
+          <span class="label" id="member-badge">Baru</span>
+        </div>
+        <div class="isi-form">
+          <input type="hidden" id="m-edit-id"/>
+          <div class="baris-input">
+            <label>Nama Lengkap *</label>
+            <input type="text" id="m-name" placeholder="contoh: Budi Santoso"/>
+          </div>
+          <div class="baris-input">
+            <label>No. HP *</label>
+            <input type="number" id="m-phone" placeholder="08xxxxxxxxxx"/>
+          </div>
+          <div class="baris-input">
+            <label>Jenis Kelamin *</label>
+            <select id="m-gender">
+              <option value="">-- Pilih --</option>
+              <option value="Laki-laki">Laki-laki</option>
+              <option value="Perempuan">Perempuan</option>
+            </select>
+          </div>
+          <div class="baris-input">
+            <label>Paket *</label>
+            <select id="m-package">
+              <option value="Basic">Basic (1 Bulan) — Rp 150.000</option>
+              <option value="Silver">Silver (3 Bulan) — Rp 400.000</option>
+              <option value="Gold">Gold (6 Bulan) — Rp 700.000</option>
+              <option value="Platinum">Platinum (12 Bulan) — Rp 1.200.000</option>
+            </select>
+          </div>
+          <div class="baris-input">
+            <label>Infrastruktur *</label>
+            <select id="m-infrastruktur">
+              <option value="">-- Pilih Infrastruktur --</option>
+              <option value="Maulana Ibrahim Hadad">Maulana Ibrahim Hadad</option>
+              <option value="Muhammad Ridho">Muhammad Ridho</option>
+              <option value="Irfhan Ardhiansyah">Irfhan Ardhiansyah</option>
+            </select>
+          </div>
+          <div class="baris-input">
+            <label>Tanggal Mulai *</label>
+            <input type="date" id="m-start"/>
+          </div>
+          <div class="tombol-aksi">
+            <button class="tombol-simpan" id="m-submit">Daftarkan</button>
+            <button class="tombol-batal" id="m-cancel" style="display:none">Batal</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-tabel">
+        <div class="kepala-panel">
+          <h3>👥 Data Member</h3>
+        </div>
+        <div class="baris-filter">
+          <button class="tab-active" data-mf="Semua">Semua</button>
+          <button class="tab" data-mf="Aktif">Aktif</button>
+          <button class="tab" data-mf="Expired">Expired</button>
+        </div>
+        <div class="area-tabel">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Gender</th>
+                <th>Paket</th>
+                <th>Infrastruktur</th>
+                <th>Mulai</th>
+                <th>Expired</th>
+                <th>Status</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="m-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="JS/script.js"></script>
+</body>
+</html>
